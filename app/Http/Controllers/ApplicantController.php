@@ -108,9 +108,11 @@ class ApplicantController extends Controller
         $applicant->save();
         //////////////////////////////////
 
+
+        $applicants = Applicant::where('email', auth()->user()->email)->first();
         
         ///////////////////////////////////////////
-        $kin->application_number = $applicant->application_number;
+        $kin->application_number = $applicants->applicant_id;
         $kin->kin_name = $request->input('kinName');
         $kin->kin_address = $request->input('kinAddress');
         $kin->kin_phone = $request->input('kinNumber');
@@ -118,17 +120,19 @@ class ApplicantController extends Controller
         $kin->kin_relationship = $request->input('kinRelationship');
         $kin->save();
         //////////////////////////////////////////////
-        $sponsor->application_number = $applicant->application_number;
+        $sponsor->application_number = $applicants->applicant_id;
         $sponsor->sponsor_name = $request->input('s-name');
         $sponsor->sponsor_address = $request->input('s-address');
         $sponsor->sponsor_phone = $request->input('s-no');
         $sponsor->sponsor_email = $request->input('s-email');
         $sponsor->save();
 
+        $key = str_replace('@', '', auth()->user()->email);
+
 
         return redirect()->action('ApplicantController@index')
             ->with('success','Personal Profile Created Successfully, Please Proceed.')
-            ->withCookie(cookie()->forever('Applicant', 'Personal Profile Created Successfully, Please Proceed.'));
+            ->withCookie(cookie()->forever(str_replace('.', '', $key).'Applicant', 'Personal Profile Created Successfully, Please Proceed.'));
     }
 
     /**

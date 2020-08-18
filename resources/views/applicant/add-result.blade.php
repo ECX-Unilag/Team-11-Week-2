@@ -1,8 +1,11 @@
 @extends('layouts.applicant_view')
 
 @section('content')
-@if (Cookie::get('Education'))
-    <div class="alert alert-success">{{ Cookie::get('Education') }}</div>
+@php
+$key = str_replace('@', '', $user->email)
+@endphp
+@if (Cookie::get(str_replace('.', '', $key).'Education'))
+    <div class="alert alert-success">{{ Cookie::get(str_replace('.', '', $key).'Education') }}</div>
 @else
     <form method="POST" action="add-result">
     {{ csrf_field() }}

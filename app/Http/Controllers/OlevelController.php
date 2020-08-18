@@ -39,7 +39,7 @@ class OlevelController extends Controller
     {
         $result = new Applicant_olevel;
         $applicant = Applicant::where('email', auth()->user()->email)->first();
-        $result->application_number = $applicant->application_number;
+        $result->application_number = $applicant->applicant_id;
         $result->type = $request->input('oLevelType');
         $result->subject1 = $request->input('subject1');
         $result->grade1 = $request->input('grade1');
@@ -60,9 +60,11 @@ class OlevelController extends Controller
         $result->subject9 = $request->input('subject9');
         $result->grade9 = $request->input('grade9');
 
+        $key = str_replace('@', '', auth()->user()->email);
+
         return redirect()->action('OlevelController@index')
             ->with('success','Educational Profile Created Successfully, Please Proceed.')
-            ->withCookie(cookie()->forever('Education', 'Educational Profile Created Successfully, Please Proceed.'));
+            ->withCookie(cookie()->forever(str_replace('.', '', $key).'Education', 'Educational Profile Created Successfully, Please Proceed.'));
     }
 
     /**
