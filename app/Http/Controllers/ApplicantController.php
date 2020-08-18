@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Applicant;
 use App\Department;
 use App\Faculty;
+use App\Next_of_kin;
+use App\Sponsor;
 use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
@@ -19,7 +21,9 @@ class ApplicantController extends Controller
         return view('administrator.applicant.profile')
         ->with('applicant', Applicant::where('applicant_id', $id)->first())
         ->with('department',Department::orderBy('dept_id','ASC')->get())
-        ->with('faculties',Faculty::orderBy('faculties_id','ASC')->get());;
+        ->with('faculties',Faculty::orderBy('faculties_id','ASC')->get())
+        ->with('kin',Next_of_kin::orderBy('kin_id','ASC')->get())
+        ->with('sponsor',Sponsor::orderBy('sponsor_id','ASC')->get());
     }
 
     /**->with('applicant',Applicant::orderBy('lastname','ASC')->get()); 
