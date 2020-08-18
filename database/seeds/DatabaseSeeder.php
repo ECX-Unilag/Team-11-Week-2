@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             ApplicantSeeder::class,
             FacultySeeder::class,
             olevelSeeder::class,
+            NextOfKinSeeder::class,
+            SponsorSeeder::class,
         ]);
     }
 }

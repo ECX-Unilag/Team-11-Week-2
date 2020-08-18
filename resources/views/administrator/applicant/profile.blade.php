@@ -7,6 +7,12 @@
 @php
     $departmentlist = array();
 @endphp
+@php
+    $kinlist = array();
+@endphp
+@php
+    $sponsorlist = array();
+@endphp
 @foreach ($faculties as $faculties)
     @php
         $facultylist[$faculties->faculties_id] = $faculties->title
@@ -17,6 +23,16 @@
         $departmentlist[$department->dept_id] = $department->department
     @endphp
 @endforeach
+@foreach ($kin as $kin)
+    @php
+        $kinlist[$kin->kin_id] = $kin->kin_firstname.' '.$kin->kin_lastname
+    @endphp
+@endforeach
+@foreach ($sponsor as $sponsor)
+    @php
+        $sponsorlist[$sponsor->sponsor_id] = $sponsor->sponsor_firstname.' '.$sponsor->sponsor_lastname
+    @endphp
+@endforeach
 <div>application_number: {{ $applicant->application_number }}</div>
 <div>firstname: {{ $applicant->firstname }}</div>
 <div>lastname: {{ $applicant->lastname }}</div>
@@ -25,6 +41,8 @@
 <div>phone_no: {{ $applicant->phone_no }}</div>
 <div>email: {{ $applicant->email }}</div>
 <div>faculty: {{$facultylist[$applicant->faculties_id]}}</div>
+<div>Next of Kin: {{$kinlist[$applicant->applicant_id]}}</div>
+<div>Sponsor: {{$sponsorlist[$applicant->applicant_id]}}</div>
 <div>department: {{$departmentlist[$applicant->dept_id]}}</div>
 <div>enrollment_type: {{ $applicant->enrollment_type }}</div>
 <div>jamb_no: {{ $applicant->jamb_no }}</div>
