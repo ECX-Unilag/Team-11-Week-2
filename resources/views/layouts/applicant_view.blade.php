@@ -24,13 +24,13 @@
       <span style="cursor: pointer;" id="closeBtn" class="close">&times;</span>
       <img class="py-4 mx-auto d-block" src="/assets/images/brand (2).png" />
       <h3 class="text-center">MENU</h3>
-      <a class="active" href="/create-profile">
+      <a href="/create-profile">
         <i class="fa fa-user"></i>
         <label>Create Profile</label>
       </a>
       <a href="/admission-status">
         <i class="fa fa-user"></i>
-        <label>Check Admission Staus</label>
+        <label>Check Admission Status</label>
       </a>
       <a href="/display-info">
         <i class="fa fa-user"></i>

@@ -50,4 +50,5 @@ Route::middleware(['auth'])->group(function() {
 	Route::post('/create-profile', 'ApplicantController@store');
 	Route::get('profile/{applicant_id}', 'ProfileController@index');
 	Route::resource('/add-result', 'OlevelController');
+	Route::get('/admission-status', 'ApplicantController@indexer');
 });
