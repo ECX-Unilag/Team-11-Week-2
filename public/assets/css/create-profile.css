@@ -1,0 +1,26 @@
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Montserrat", sans-serif;
+  font-weight:bold !important;
+}
+html, body {
+  width:100%;
+  height:100%;
+}
+section {
+  border-bottom:2px solid #3ab1fd;
+  margin:10px;
+  padding:0 20px 20px 20px;
+}
+.line {
+  width:150px;
+  height:3px;
+  background-color:#3ab1fd;
+  margin-top:-5px;
+  margin-bottom:20px;
+}
+label {
+  font-weight:bold;
+} we

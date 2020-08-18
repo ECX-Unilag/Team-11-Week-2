@@ -15,9 +15,8 @@ class CreateSponsorsTable extends Migration
     {
         Schema::create('sponsors', function (Blueprint $table) {
             $table->increments('sponsor_id');
-            $table->integer('applicant_id');
-            $table->string('sponsor_firstname');
-            $table->string('sponsor_lastname');
+            $table->integer('application_number');
+            $table->string('sponsor_name');
             $table->string('sponsor_address');
             $table->string('sponsor_phone');
             $table->string('sponsor_email');

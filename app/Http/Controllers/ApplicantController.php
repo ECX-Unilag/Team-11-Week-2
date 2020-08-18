@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Applicant;
@@ -7,10 +6,12 @@ use App\Department;
 use App\Faculty;
 use App\Next_of_kin;
 use App\Sponsor;
+use App\Applicant_olevel;
 use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +29,9 @@ class ApplicantController extends Controller
     public function index()
     {
         return view('applicant.create-profile')
-        ->with('user', auth()->user());
+        ->with('user', auth()->user())
+        ->with('department',Department::orderBy('dept_id','ASC')->get())
+        ->with('faculty',Faculty::orderBy('faculties_id','ASC')->get());
     }
 
     /**->with('applicant',Applicant::orderBy('lastname','ASC')->get()); 
@@ -49,7 +52,8 @@ class ApplicantController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        
+        /*$this->validate($request, [
             'firstname' => 'required | min:3',
             'lastname' => 'required | min:3',
             'date' => 'required',
@@ -67,14 +71,64 @@ class ApplicantController extends Controller
             'kin-email' => 'required',
             'sponsor-name' => 'required',
             'sponsor-email' => 'required',
-        ]);
+        ]);*/
+        
+        
         $applicant = new Applicant;
+        $result = new Applicant_olevel;
+        $sponsor = new Sponsor;
+        $kin = new Next_of_kin;
         $applicant->email = auth()->user()->email;
-        $applicant->title = $request->input('course');
+        $applicant->application_number = 6;
+        $applicant->applicant_passport = 'soon';
+        $applicant->firstname = $request->input('firstname');
+        $applicant->lastname = $request->input('lastname');
+        $applicant->middlename = $request->input('middlename');
+        $applicant->date_of_birth = $request->input('date');
+        $applicant->phone_no = $request->input('phone');
+        $applicant->faculties_id = $request->input('faculty');
+        $applicant->dept_id = $request->input('department');
+        $applicant->enrollment_type = $request->input('enrollmentType');
+        $applicant->jamb_no = $request->input('jambNumber');
+        $applicant->jamb_score = $request->input('jambScore');
+        $applicant->gender = $request->input('gender');
+        $applicant->marital_status = $request->input('maritalStatus');
+        $applicant->nationality = $request->input('nationality');
+        $applicant->state_of_origin = $request->input('state');
+        $applicant->local_government = $request->input('local');
+        $applicant->home_town = $request->input('town');
+        $applicant->home_address = $request->input('home');
+        $applicant->religion = $request->input('religion');
+        $applicant->genotype = $request->input('genotype');
+        $applicant->bloodgroup = $request->input('bloodGroup');
+        $applicant->session = '2020-2021';
+        $applicant->guardian = $request->input('g-name');
+        $applicant->guardian_email = $request->input('g-email');
+        $applicant->guardian_phone_no = $request->input('g-no');
         $applicant->save();
-        return redirect()->action('courseController@index')
-            ->with('success','Course Added')
-            ->with('course',Course::orderBy('course_id','DESC')->get());
+        //////////////////////////////////
+
+        
+        ///////////////////////////////////////////
+        $kin->application_number = $applicant->application_number;
+        $kin->kin_name = $request->input('kinName');
+        $kin->kin_address = $request->input('kinAddress');
+        $kin->kin_phone = $request->input('kinNumber');
+        $kin->kin_email = $request->input('kinEmail');
+        $kin->kin_relationship = $request->input('kinRelationship');
+        $kin->save();
+        //////////////////////////////////////////////
+        $sponsor->application_number = $applicant->application_number;
+        $sponsor->sponsor_name = $request->input('s-name');
+        $sponsor->sponsor_address = $request->input('s-address');
+        $sponsor->sponsor_phone = $request->input('s-no');
+        $sponsor->sponsor_email = $request->input('s-email');
+        $sponsor->save();
+
+
+        return redirect()->action('ApplicantController@index')
+            ->with('success','Personal Profile Created Successfully, Please Proceed.')
+            ->withCookie(cookie()->forever('Applicant', 'Personal Profile Created Successfully, Please Proceed.'));
     }
 
     /**

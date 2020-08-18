@@ -45,7 +45,9 @@ Route::middleware(['is_admin'])->group(function() {
 
 // User Authorisation
 Route::middleware(['auth'])->group(function() {
-	Route::resource('/create-profile', 'ApplicantController');
+	Route::get('/create-profile', 'ApplicantController@index');
 	Route::resource('/view-profile', 'ProfileAuthController');
+	Route::post('/create-profile', 'ApplicantController@store');
 	Route::get('profile/{applicant_id}', 'ProfileController@index');
+	Route::resource('/add-result', 'OlevelController');
 });
