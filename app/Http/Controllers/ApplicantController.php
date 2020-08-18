@@ -16,7 +16,7 @@ class ApplicantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function indexes($id)
     {
         return view('administrator.applicant.profile')
         ->with('applicant', Applicant::where('applicant_id', $id)->first())
@@ -24,6 +24,11 @@ class ApplicantController extends Controller
         ->with('faculties',Faculty::orderBy('faculties_id','ASC')->get())
         ->with('kin',Next_of_kin::orderBy('kin_id','ASC')->get())
         ->with('sponsor',Sponsor::orderBy('sponsor_id','ASC')->get());
+    }
+    public function index()
+    {
+        return view('applicant.create-profile')
+        ->with('user', auth()->user());
     }
 
     /**->with('applicant',Applicant::orderBy('lastname','ASC')->get()); 
@@ -44,7 +49,32 @@ class ApplicantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'firstname' => 'required | min:3',
+            'lastname' => 'required | min:3',
+            'date' => 'required',
+            'gender' => 'required',
+            'marital' => 'required',
+            'religion' => 'required',
+            'blood-group' => 'required',
+            'nationality' => 'required',
+            'faculty' => 'required',
+            'department' => 'required',
+            'type' => 'required',
+            'jamb-reg' => 'required',
+            'score' => 'required',
+            'kin-name' => 'required',
+            'kin-email' => 'required',
+            'sponsor-name' => 'required',
+            'sponsor-email' => 'required',
+        ]);
+        $applicant = new Applicant;
+        $applicant->email = auth()->user()->email;
+        $applicant->title = $request->input('course');
+        $applicant->save();
+        return redirect()->action('courseController@index')
+            ->with('success','Course Added')
+            ->with('course',Course::orderBy('course_id','DESC')->get());
     }
 
     /**
