@@ -13,9 +13,9 @@ class CreateApplicantOlevelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('applicant_olevels', function (Blueprint $table) {
+        Schema::create('applicant-olevels', function (Blueprint $table) {
             $table->increments('olevel_id');
-            $table->integer('applicant_id');
+            $table->integer('application_number');
             $table->enum('type', ['WASSCE', 'NECO', 'IGCSE', 'Other']);
             $table->string('subject1');
             $table->enum('grade1', ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9']);
@@ -46,6 +46,6 @@ class CreateApplicantOlevelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('applicant_olevels');
+        Schema::dropIfExists('applicant-olevels');
     }
 }

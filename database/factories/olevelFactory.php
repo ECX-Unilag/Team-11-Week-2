@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Applicant_olevel::class, function (Faker $faker) {
     return [
-        'applicant_id' => $faker->numberBetween($min=1, $max=5),
+        'application_number' => $faker->numberBetween($min=1, $max=5),
         'type' => $faker->randomElement(['WASSCE', 'NECO', 'IGCSE', 'Other']),
         'subject1' => $faker->word,
         'grade1' => $faker->randomElement(['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9']),

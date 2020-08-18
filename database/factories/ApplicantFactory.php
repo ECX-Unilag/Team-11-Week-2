@@ -13,7 +13,7 @@ $factory->define(App\Applicant::class, function (Faker $faker) {
         'email' => $faker->email,
         'faculties_id' => $faker->numberBetween($min=1, $max=5),
         'dept_id' => $faker->numberBetween($min=1, $max=5),
-        'enrollment_type' => $faker->randomElement(['Undergraduate', 'Postgraduate']),
+        'enrollment_type' => $faker->randomElement(['JAMB', 'Direct Entry']),
         'jamb_no' => $faker->randomNumber,
         'jamb_score' => $faker->numberBetween($min=0, $max=400),
         'gender' => $faker->randomElement(['Male', 'Female']),

@@ -40,14 +40,15 @@ Route::middleware(['is_admin'])->group(function() {
 	Route::resource('faculty', 'FacultyController');
 	Route::resource('applicants', 'ApplicantsController');
 	Route::get('applicantionbyyear', ['as' => 'applicantionbyyear', 'uses' => 'ApplicantsController@search_applicant_by_year']);
+	Route::get('applicant/{applicant_id}', 'ApplicantController@indexes');
 });
 
 // User Authorisation
 Route::middleware(['auth'])->group(function() {
-	Route::get('/create-profile', function () {
-	    return view('create-profile');
-	});
-	Route::get('applicant/{applicant_id}', 'ApplicantController@index');
+	Route::get('/create-profile', 'ApplicantController@index');
+	Route::resource('/view-profile', 'ProfileAuthController');
+	Route::post('/create-profile', 'ApplicantController@store');
+	Route::get('profile/{applicant_id}', 'ProfileController@index');
+	Route::resource('/add-result', 'OlevelController');
+	Route::get('/admission-status', 'ApplicantController@indexer');
 });
-
-

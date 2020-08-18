@@ -15,9 +15,8 @@ class CreateNextOfKinsTable extends Migration
     {
         Schema::create('next_of_kins', function (Blueprint $table) {
             $table->increments('kin_id');
-            $table->integer('applicant_id');
-            $table->string('kin_firstname');
-            $table->string('kin_lastname');
+            $table->integer('application_number');
+            $table->string('kin_name');
             $table->string('kin_address');
             $table->string('kin_phone');
             $table->string('kin_email');

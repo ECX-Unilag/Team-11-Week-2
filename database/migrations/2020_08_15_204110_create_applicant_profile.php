@@ -24,7 +24,7 @@ class CreateApplicantProfile extends Migration
             $table->string('email');
             $table->integer('faculties_id');
             $table->integer('dept_id');
-            $table->enum('enrollment_type', ['Undergraduate', 'PostGraduate']);
+            $table->enum('enrollment_type', ['JAMB', 'Direct Entry']);
             $table->integer('jamb_no');
             $table->integer('jamb_score');
             $table->enum('gender', ['Male', 'Female']);
@@ -40,7 +40,7 @@ class CreateApplicantProfile extends Migration
             $table->enum('bloodgroup', ['A', 'B', 'AB', 'O']);
             $table->string('session');
             $table->enum('admission_status', ['admitted', 'processing', 'rejected'])->default('processing');
-            $table->enum('admission_batch', ['A', 'B', 'C']);
+            $table->enum('admission_batch', ['A', 'B', 'C', 'N'])->default('N');
             $table->string('school_id')->default(1);
             $table->enum('register_status', ['started', 'in progress', 'finished'])->default('started');
             $table->string('guardian');
