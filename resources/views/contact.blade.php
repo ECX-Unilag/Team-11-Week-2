@@ -39,7 +39,7 @@
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Sign Up</a></li>
           </ul>
-          <a style="text-align: center;" href="index.html"><img src="/assets/images/brand (2).png"></a>
+          <a style="text-align: center;" href="/"><img src="/assets/images/brand (2).png"></a>
         </div>
       </div>
     </nav>

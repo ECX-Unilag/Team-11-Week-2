@@ -11,7 +11,7 @@
 <body>
     <header>
         <nav>
-          <a href="index.html"><img class="logo" src="/assets/images/brand (2).png" alt="ECX Logo"></a>
+          <a href="/"><img class="logo" src="/assets/images/brand (2).png" alt="ECX Logo"></a>
           <ul>
             <li><a href="/">Home</a></li>
             <li><a class="active" href="/about">About Us</a></li>
