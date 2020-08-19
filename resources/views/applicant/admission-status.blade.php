@@ -22,7 +22,7 @@
     @else
         <div class="await">
         <i class="my-4 fa-10x fas fa-spinner"></i>
-        <h1>Admission in Progress</h1>
+        <h1>Start Your Application</h1>
         </div>
     @endif
     </div>
