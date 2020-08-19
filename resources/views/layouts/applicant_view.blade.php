@@ -70,13 +70,16 @@
   <footer></footer>
 
   <script src="/assets/js/jquery.min.js"></script>
-  <script src="/assets/js/main.js"></script>
-  <script src="/assets/js/portal.js"></script>
-  <script>
-    $('.dropdown-toggle').click(function() {
-        $('.dropdown-menu').toggle();
-    });
-  </script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/try.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script>
+        $('.dropdown-toggle').click(function() {
+            $('.dropdown-menu').toggle();
+        });
+    </script>
+    <!-- App js -->
+    <script src="/assets/js/app.js"></script>
 </body>
 
 </html>
