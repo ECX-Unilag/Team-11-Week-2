@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.applicant_view');
+        return view('applicant.home')->with('user', auth()->user());
     }
     public function adminindex()
     {
