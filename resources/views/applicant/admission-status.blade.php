@@ -5,6 +5,7 @@
 
 <div class="content my-4">
     <div class="text-center">
+    @if (Session::get('applicant'))
         @if ($applicant && $applicant->status == 'admitted')
         <!-- Success Div (If the candidate is sucessful, uncomment the div down)  -->
         <div class="success">
@@ -18,6 +19,12 @@
         <h1>Admission in Progress</h1>
         </div>
         @endif
+    @else
+        <div class="await">
+        <i class="my-4 fa-10x fas fa-spinner"></i>
+        <h1>Admission in Progress</h1>
+        </div>
+    @endif
     </div>
     </div>
 @endsection
