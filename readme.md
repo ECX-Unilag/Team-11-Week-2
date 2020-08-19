@@ -12,3 +12,8 @@
 8. To make sure there are no conflicts: ```git pull upstream develop```
 9. Push changes to your new branch: ```git push origin your-current-branch-name```
 10. Create a pull request to the develop branch
+
+### Working App Link
+http://ecx-admission-portal.herokuapp.com/
+
+### Enjoy 
