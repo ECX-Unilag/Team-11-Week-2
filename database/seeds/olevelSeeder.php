@@ -11,6 +11,6 @@ class olevelSeeder extends Seeder
      */
     public function run()
     {
-        $olevel = factory(App\Applicant_olevel::class, 5)->create();
+        $olevel = factory(App\Applicant_olevel::class, 1)->create();
     }
 }

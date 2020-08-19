@@ -4,15 +4,15 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Applicant::class, function (Faker $faker) {
     return [
-        'application_number' => $faker->numberBetween($min=100000, $max=999999),
+        'application_number' => 1,
         'firstname' => $faker->firstName,
         'lastname' => $faker->lastName,
         'middlename' => $faker->firstName,
         'date_of_birth' => $faker->date,
         'phone_no' => $faker->tollFreePhoneNumber,
         'email' => $faker->email,
-        'faculties_id' => $faker->numberBetween($min=1, $max=5),
-        'dept_id' => $faker->numberBetween($min=1, $max=5),
+        'faculties_id' => 1,
+        'dept_id' => 1,
         'enrollment_type' => $faker->randomElement(['JAMB', 'Direct Entry']),
         'jamb_no' => $faker->randomNumber,
         'jamb_score' => $faker->numberBetween($min=0, $max=400),

@@ -11,6 +11,6 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-        $sponsor = factory(App\Sponsor::class, 5)->create();
+        $sponsor = factory(App\Sponsor::class, 1)->create();
     }
 }

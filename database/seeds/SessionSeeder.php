@@ -11,6 +11,6 @@ class SessionSeeder extends Seeder
      */
     public function run()
     {
-        $session = factory(App\Session::class, 5)->create();
+        $session = factory(App\Session::class, 1)->create();
     }
 }

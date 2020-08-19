@@ -11,6 +11,6 @@ class NextOfKinSeeder extends Seeder
      */
     public function run()
     {
-        $kin = factory(App\Next_of_kin::class, 5)->create();
+        $kin = factory(App\Next_of_kin::class, 1)->create();
     }
 }
