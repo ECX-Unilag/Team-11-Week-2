@@ -5,8 +5,7 @@
 
 <div class="content my-4">
     <div class="text-center">
-        
-        @if ($applicant->status == 'admitted')
+        @if ($applicant && $applicant->status == 'admitted')
         <!-- Success Div (If the candidate is sucessful, uncomment the div down)  -->
         <div class="success">
         <i class="my-4 fa-10x text-success fas fa-check-circle"></i>

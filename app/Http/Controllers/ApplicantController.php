@@ -20,9 +20,14 @@ class ApplicantController extends Controller
     public function indexer()
     {
         $applicant = Applicant::where('email', auth()->user()->email)->first();
-        return view('applicant.admission-status')
-        ->with('applicant', $applicant)
-        ->with('department',Department::where('dept_id',$applicant->dept_id)->first());
+        if ($applicant) {
+            return view('applicant.admission-status')
+                ->with('applicant', $applicant)
+                ->with('department',Department::where('dept_id',$applicant->dept_id)->first());
+        }
+        else {
+            return view('applicant.admission-status');
+        }
     }
 
     public function indexes($id)
