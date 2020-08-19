@@ -8,9 +8,9 @@
     <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
     <meta content="Themesdesign" name="author" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets/css/admin-dashboard.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/header-nav.css')}}">
-    <link href="{{asset('assets/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/css/admin-dashboard.css">
+    <link rel="stylesheet" href="/assets/css/header-nav.css">
+    <link href="/assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -45,9 +45,6 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="calendar.html" class="waves-effect"><i class="icon-calendar"></i><span> Admin Manager </span></a>
-                        </li>
                         <li>
                             <a href="/course" class="waves-effect"><i class="icon-pencil"></i><span> Course </span></a>
                         </li>
@@ -102,17 +99,17 @@
             
     </main>
     <!-- END wrapper -->
-    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
-    <script src="{{asset('assets/js/metismenu.min.js')}}"></script>
-    <script src="{{asset('assets/js/try.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.slimscroll.js')}}"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/try.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
     <script>
         $('.dropdown-toggle').click(function() {
             $('.dropdown-menu').toggle();
         });
     </script>
     <!-- App js -->
-    <script src="{{asset('assets/js/app.js')}}"></script>
+    <script src="/assets/js/app.js"></script>
 </body>
 
 </html>
